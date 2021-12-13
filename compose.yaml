@@ -1,13 +1,13 @@
 services:
   webapp:
-    image: php:8.0-apache
+    image: php:8.1.0-apache
     ports:
-      - 8000:80
+    - ${PHP_PORT:-8000}:80
     volumes:
-      - ${PHP_APP:-./php/src}:/var/www/html:ro
+    - ${PHP_APP:-./php/src}:/var/www/html:ro
 
   database:
     image: mysql:latest
     restart: always
     environment:
-      - name=value
+      - MYSQL_ROOT_PASSWORD=value
