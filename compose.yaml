@@ -1,0 +1,13 @@
+services:
+  webapp:
+    image: php:8.0-apache
+    ports:
+      - 8000:80
+    volumes:
+      - ${PHP_APP:-./php/src}:/var/www/html:ro
+
+  database:
+    image: mysql:latest
+    restart: always
+    environment:
+      - name=value
